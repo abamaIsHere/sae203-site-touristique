@@ -1,0 +1,51 @@
+{% extends "activites_par_ville.html.twig" %}
+
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+
+		{% block hero_bg %}
+			<h2>Découvrez les activités à faire dans le monde</h2>
+		{% endblock %}
+
+{% block aside %}
+	<ul>
+		{% for categories in categorie_activite %}
+			<li>
+				<a class="villes_tille" href="activites_par_categorie.php?id={{ categories.id_categorie }}">
+					<h2>{{ categories.nom_categorie }}</h2>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block main_activites %}
+	<div class="activites_par_ville">
+		{% for activite_cate in activites_par_categorie %}
+			<a class="activitie_card" href="detail_activite.php?id={{ activite_cate.id_activite }}">
+				<article>
+					{% if activite_cate.nom_categorie != "" %}
+						<p class="category">
+							{{ activite_cate.nom_categorie }}
+                            
+						</p>
+                        
+					{% endif %}
+					<div class="activitie_card_img">
+						<img src="{{ activite_cate.img }}" alt="activite_cate.titre">
+					</div>
+					<div class="activitie_card_content">
+						<p>{{ activite_cate.nom_villes }}</p>
+						<h3>{{ activite_cate.titre }}</h3>
+						<p>{{ activite_cate.desc }}</p>
+						<div class="activitie_card_prix">
+							<h4>Prix à partir de</h4>
+							<p>{{ activite_cate.prix }}</p>
+						</div>
+					</div>
+				</article>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

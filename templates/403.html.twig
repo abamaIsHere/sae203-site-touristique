@@ -1,0 +1,221 @@
+{% extends "base.html.twig" %}
+
+{% block css %}
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900 &display=swap');
+
+
+		.not-found {
+			text-align: center;
+			padding: 50px;
+			width: calc(100% - 2rem);
+			max-width: 1240px;
+			margin: 0 auto;
+		}
+		.not-found blokquote {
+			text-align: center;
+			padding: 50px;
+		}
+
+
+		header {
+			width: calc(100% - 2rem);
+			max-width: 1240px;
+			margin: 0 auto;
+		}
+
+
+		.navbar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 60px;
+			background: #ffffff;
+			border-bottom: 1px solid #e5e7eb;
+			position: sticky;
+			top: 0;
+			z-index: 100;
+		}
+
+		.logo {
+			font-size: 40px;
+			font-weight: 800;
+			color: #00b5b0;
+			letter-spacing: -0.5px;
+			text-decoration: none;
+		}
+
+
+		.nav-actions {
+			list-style: none;
+			display: flex;
+			gap: 30px;
+		}
+
+		.nav-actions li {
+			position: relative;
+		}
+
+
+		.nav-actions a {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			font-size: 20px;
+			font-weight: 600;
+			color: #1a2e44;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.nav-actions a:hover {
+			color: #00b5b0;
+		}
+
+		.nav-actions svg {
+			width: 18px;
+			height: 18px;
+			stroke: currentColor;
+			fill: none;
+			/* stroke-width: ; */
+		}
+
+		.nav-actions li {
+			position: relative;
+			transition: color 0.3s ease;
+		}
+
+
+		.dropdown {
+			position: absolute;
+			top: 41px;
+			right: -150px;
+			background: #ffffff;
+			border: 1px solid #e5e7eb;
+			padding: 10px;
+			display: none;
+			width: max-content;
+			height: auto;
+			list-style: none;
+			box-shadow: 0 20px 20px 10px rgb(0 0 0 / 10%);
+		}
+
+		.dropdown::before {
+			content: '';
+			top: -20px;
+			left: 0;
+			background: transparent;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+
+		}
+
+		.nav-actions li:hover .dropdown {
+			display: block;
+		}
+
+		/* footer */
+		footer {
+			margin: 0 auto;
+			text-align: center;
+			background: #1a2e44;
+			color: #ffffff;
+		}
+
+		footer>p:last-child {
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			color: #ffffff;
+		}
+
+		.footer_content {
+			width: calc(100% - 2rem);
+			max-width: 1240px;
+			margin: 0 auto;
+			color: #00b5b0;
+			display: flex;
+			gap: 20px;
+		}
+
+
+		.footer_section_about {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			justify-content: end;
+			width: 50%;
+			text-align: left;
+		}
+
+		.footer_section_about h2 {
+			font-size: 138px;
+			padding: 0;
+		}
+
+		.footer_section_social {
+			display: flex;
+			gap: 30px;
+
+		}
+
+		.footer_section_social a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 50px;
+			height: 50px;
+			border-radius: 50%;
+			color: #00b5b0;
+		}
+
+		.footer-section_contact {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			justify-content: end;
+			width: 50%;
+			text-align: right;
+		}
+
+		.nav_actions_footer {
+			list-style: none;
+			gap: 30px;
+
+		}
+
+		.nav_actions_footer li {
+			padding: 30px 0;
+			border-bottom: 1px solid #e5e7eb;
+
+		}
+
+		.nav_actions_footer li a {
+			text-decoration: none;
+			color: #00b5b0;
+			font-size: 20px;
+			font-weight: 600;
+
+		}
+
+		.nav_actions_footer li a:hover {
+			text-decoration: none;
+			color: #6b7280;
+			font-size: 20px;
+			font-weight: 600;
+
+		}
+	</style>
+{% endblock %}
+
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+{% block main %}
+	<section class="not-found">
+		<h1>Accès interdit 403</h1>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/ewoqSazt4Ps?si=sNb0sShK58ZmOBzt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</section>
+
+{% endblock %}

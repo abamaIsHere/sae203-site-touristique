@@ -1,0 +1,117 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+
+{% block css %}
+	<link rel="stylesheet" href="css/activite_detail.css">
+{% endblock %}
+
+
+{% block main  %}
+	<section class="activite_imgs">
+		<div class="imagges_activite">
+			<div class="img_gauche">
+				{% if activite_par_villes_img|length > 0 %}
+					<img src="{{ activite_par_villes_img[0].img }}" alt="{{ activites_detail.titre }}">
+				{% endif %}
+			</div>
+
+			<div class="img_droite">
+				{% for villes_img in activite_par_villes_img %}
+					{% if loop.index > 1 %}
+						<img src="{{ villes_img.img }}" alt="{{ activites_detail.titre }}">
+					{% endif %}
+				{% endfor %}
+			</div>
+
+		</div>
+		<div class="activite_content">
+			<div class="service_titre">
+				<div class="activite_content_1">
+					<p>{{ activites_detail.desc }}</p>
+					<h2>{{ activites_detail.titre }}</h2>
+					<p>{{ activites_detail.pays }}</p>
+				</div>
+				<div class="activite_content_3">
+					<h3>Prix</h3>
+					<p>{{ activites_detail.prix }}</p>
+				</div>
+			</div>
+
+			<div class="service_details">
+				<div class="activite_content_2">
+					<i class="bi bi-clock-history"></i>
+					<h3>Durée</h3>
+					<p>{{ activites_detail.duree }}</p>
+				</div>
+				<div class="activite_content_2">
+					<i class="bi bi-stopwatch-fill"></i>
+					<h3>Dernière Entrée</h3>
+					<p>{{ activites_detail.derniere_entre }}</p>
+				</div>
+				<div class="activite_content_2">
+					<i class="bi bi-bag-check-fill"></i>
+					<h3>Le service comprend</h3>
+					<p>{{ activites_detail.service_comprend }}</p>
+				</div>
+			</div>
+			<p>{{ activites_detail.info_important }}</p>
+
+		</div>
+	</section>
+
+	<section class="activite_suggestion">
+		<h2>Vous pourriez aussi aimer</h2>
+		<div class="suggested_activite">
+			{% for suggestion in activite_suggestion %}
+				<a class="suggested_activite_card" href="detail_activite.php?id={{ suggestion.id_activite }}">
+					<article>
+						<div class="suggested_activite_card_img">
+							<img src="{{ suggestion.img }}" alt="">
+						</div>
+						<div class="suggested_activite_card_img_content">
+							<p>{{ suggestion.nom_villes }}</p>
+							<h3>{{ suggestion.titre }}</h3>
+							<p>{{ suggestion.desc }}</p>
+							<p>{{  suggestion.prix  }}</p>
+						</div>
+					</article>
+				</a>
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="avis">
+		<h2>Laisser un avis</h2>
+		<div class="avis_form">
+			<form action="detail_activite.php?id={{ activites_detail.id_activite }}" method="post">
+				<input type="text" name="nom" placeholder="Votre nom" required>
+				<input type="text" name="prenom" placeholder="Votre prénom" required>
+				<input type="number" name="note" placeholder="Note (1-5)" min="1" max="5" required>
+				<textarea name="avis_desc" placeholder="Votre avis" rows="5" required></textarea>
+				<button name="submit_avis" type="submit">Envoyer</button>
+			</form>
+
+		</div>
+		<div class="avis_cards">
+			{% for avis_simple in avis %}
+				<div class="singele_avis_card">
+					<div class="avis_card_header">
+						<h3>{{ avis_simple.avis_nom }}</h3>
+						<h3>{{ avis_simple.avis_prenom }}</h3>
+					</div>
+					<p>{{ avis_simple.note }}</p>
+					<blockquote>{{ avis_simple.avis_desc }}</blockquote>
+
+				</div>
+			{% endfor %}
+			{% if error_message %}
+				<p class="alert error">{{ error_message }}</p>
+			{% endif %}
+		</div>
+
+
+	</section>
+{% endblock %}

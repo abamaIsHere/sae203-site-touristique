@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block css %}
+	<style>
+		.not-found {
+			padding: 50px;
+			width: calc(100% - 2rem);
+			max-width: 1240px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	</style>
+{% endblock %}
+
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+{% block main %}
+	<section class="not-found">
+		<h1>Page introuvable 404</h1>
+		<blockquote class="twitter-tweet" data-media-max-width="560">
+			<p lang="pt" dir="ltr">i don't exist
+				<a href="https://t.co/yttrQTxq5O">pic.twitter.com/yttrQTxq5O</a>
+			</p>&mdash; Error 404 (@tio_naks)
+			<a href="https://twitter.com/tio_naks/status/2059238076979769620?ref_src=twsrc%5Etfw">May 26, 2026</a>
+		</blockquote>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	</section>
+{% endblock %}

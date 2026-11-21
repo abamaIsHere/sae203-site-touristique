@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+
+{% block css %}
+	<link rel="stylesheet" href="css/activites.css">
+{% endblock %}
+
+{% block main %}
+
+	<section class="hero_bg">
+		{% block hero_bg %}
+			{# <img src="images/fond/activite.avif" alt="hero image"> #}
+			<h2>Découvrez les activités à faire dans les villes de France</h2>
+		{% endblock %}
+		
+	</section>
+
+	<section class="activities" aria-label="Activities Section">
+
+		<aside class="activity_aside" aria-label="Liste des villes avec activités">
+			{% block aside %}
+				<ul>
+					{% for ville in villes_activite %}
+						<li>
+							<a class="villes_tille" href="activites_par_ville.php?id={{ ville.id_villes }}">
+								<div class="ville_img"><img src="{{ ville.ville_img }}" alt="ville.nom_villes"></div>
+								<h2>{{ ville.nom_villes }}</h2>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+			{% endblock %}
+		</aside>
+
+		<div class="activities_content">
+			{% block main_activites %}
+				<div class="activites_par_ville">
+					{% for activite in activites_par_ville %}
+						<a class="activitie_card" href="detail_activite.php?id={{ activite.id_activite }}">
+							<article>
+								<div class="activitie_card_img">
+									<img src="{{ activite.img }}" alt="activite.titre">
+								</div>
+								<div class="activitie_card_content">
+									<p>{{ activite.nom_villes }}</p>
+									<h3>{{ activite.titre }}</h3>
+									<p>{{ activite.desc }}</p>
+									<div class="activitie_card_prix">
+										<h4>Prix à partir de</h4>
+										<p>{{ activite.prix }}</p>
+									</div>
+								</div>
+							</article>
+						</a>
+					{% endfor %}
+				</div>
+			{% endblock %}
+
+		</div>
+	</section>
+
+{% endblock %}

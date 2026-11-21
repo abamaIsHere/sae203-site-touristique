@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	{{ title|title }}
+{% endblock title %}
+
+{% block css %}
+	<link rel="stylesheet" href="css/a_propos.css">
+{% endblock css %}
+
+{% block main %}
+    <section class="about-intro" aria-labelledby="about-title">
+        <div class="about-container">
+            <h2 id="about-title">Qui sommes-nous ?</h2>
+            <p>
+                <strong>Trips</strong> est une plateforme moderne dédiée aux passionnés de voyage et de découvertes. Notre mission est de simplifier l'accès aux meilleures expériences culturelles, attractions touristiques et aventures en plein air à travers le monde. Que vous exploriez les ruelles historiques de Paris ou les merveilles à l'autre bout du globe, nous sélectionnons soigneusement des activités inoubliables pour enrichir vos séjours.
+            </p>
+            <p>
+                Porté par une communauté grandissante et passionnée, notre site référence aujourd'hui un large choix d'activités. À ce jour, nous comptons pas moins de <strong>{{ total_reviews|default('0') }}</strong> avis vérifiés, laissés par des voyageurs pour vous guider en toute confiance dans vos choix.
+            </p>
+        </div>
+    </section>
+
+    <section class="fast-facts" aria-labelledby="facts-title">
+        <div class="about-container">
+            <h2 id="facts-title" class="facts-heading">Fast facts</h2>
+            
+            <ul class="facts-grid">
+                <li class="fact-card purple-theme">
+                    <span class="fact-number">50+</span>
+                    <span class="fact-label">des clients dans le monde entier</span>
+                </li>
+                <li class="fact-card orange-theme">
+                    <span class="fact-number">{{ total_avis }}</span>
+                    <span class="fact-label">Nombre total d'avis clients</span>
+                </li>
+                <li class="fact-card green-theme">
+                    <span class="fact-number">300+</span>
+                    <span class="fact-label">téléchargements d'applications</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="about-commitments" aria-labelledby="commitments-title">
+        <div class="about-container">
+            <h2 id="commitments-title">Nos engagements</h2>
+            <p>
+                L'accessibilité, la transparence et la flexibilité sont au cœur de nos valeurs. Nous travaillons main dans la main avec des partenaires locaux pour vous garantir des billets coupe-file, des conditions d'annulation souples et un support fiable, afin que votre unique préoccupation soit de profiter pleinement de votre voyage.
+            </p>
+        </div>
+    </section>
+{% endblock %}
