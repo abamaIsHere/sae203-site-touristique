@@ -1,0 +1,15 @@
+Options -Indexes
+DirectoryIndex index.php
+ErrorDocument 404 /SAE203_tayef_abdullahalmasud_v4/404.php
+ErrorDocument 403 /SAE203_tayef_abdullahalmasud_v4/403.php
+
+#fait a l'IA car parfois ça afficher file not found et pas ma page error 404
+#prompt: j'ai un problème mon htaccess ressemble a ça mais sur certains fichier ça affiche ça et pas ma page error 404 (avec joint une capture d'écran de mon htaccess et du fait que sur avis.php <-- un fichier qui n'existe pas encore, ça affiche file not found et pas error 404)
+
+RewriteEngine On
+
+#Si la requête concerne un fichier PHP qui n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .php$ https://tp2.iha.unistra.fr/~tayef/sae203/404.php [L,R=404]
+
+#jlai pique a elias sans aucun credit wallahi
